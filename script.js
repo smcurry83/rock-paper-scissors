@@ -18,10 +18,36 @@ function getComputerChoice() {
 }
 
 function getPlayerChoice() {
-  playerChoice = prompt("Enter Rock, Paper, or Scissor: ");
-  playerChoice = playerChoice.toUpperCase();
-  return playerChoice;
-}
+  document.addEventListener("DOMContentLoaded", function(event) {
+    const rockButton = document.getElementById("rock");
+    const paperButton = document.getElementById("paper");
+    const scissorButton = document.getElementById("scissor");
+
+    rockButton.addEventListener("click", function () {
+      playerChoice = rockButton.value.toUpperCase();
+      getComputerChoice();
+      console.log("Computer chose: " + computerChoice);
+      console.log("You chose: " + playerChoice);
+      playRound(computerChoice, playerChoice);
+    });
+    
+    paperButton.addEventListener("click", function() {
+      playerChoice = paperButton.value.toUpperCase();
+      getComputerChoice();
+      console.log("Computer chose: " + computerChoice);
+      console.log("You chose: " + playerChoice);
+      playRound(computerChoice, playerChoice);
+    });
+
+    scissorButton.addEventListener("click", function () {
+      playerChoice = scissorButton.value.toUpperCase();
+      getComputerChoice();
+      console.log("Computer chose: " + computerChoice);
+      console.log("You chose: " + playerChoice);
+      playRound(computerChoice, playerChoice);
+    });
+  });
+  }
 
 function playRound (computerChoice, playerChoice) {
   if ((computerChoice === 'PAPER') && (playerChoice === 'ROCK')) {
@@ -45,15 +71,24 @@ function playRound (computerChoice, playerChoice) {
   } else {
     console.log("It's a tie!");
   }
-  return computerScore, playerScore;
+  console.log("The score is: Computer: " + computerScore + " - You: " + playerScore);
 }
 
 function game () {
-  while ((computerScore < 5) && (playerScore < 5)) {
+
+  console.log("Game started. First to 5 wins.");
+  getPlayerChoice();
+
+  /*while ((computerScore < 5) && (playerScore < 5)) {
+    for (let i = 0; i < 5; i++) {
+      getComputerChoice();
+      console.log(computerChoice);
+      getPlayerChoice(computerChoice);  
+    }
     getComputerChoice();
-    getPlayerChoice();
-    console.log("Computer chose: " + computerChoice);
-    console.log("You chose: " + playerChoice);
+    console.log(computerChoice);
+    getPlayerChoice(computerChoice);
+    
     playRound(computerChoice, playerChoice);
     console.log("The score is: Computer: " + computerScore + " - You: " + playerScore);
     if (computerScore === 5) {
@@ -61,7 +96,7 @@ function game () {
     } else if (playerScore === 5) {
       console.log("YOU WIN!!!");
     }
-  }
+  } */
 }
 
 game();
