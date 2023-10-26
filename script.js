@@ -8,7 +8,7 @@ const rockButton = document.getElementById("rock");
 const paperButton = document.getElementById("paper");
 const scissorButton = document.getElementById("scissor");
 const playAgainButton = document.getElementById("playAgain");
-  playAgainButton.disabled = true;
+playAgainButton.disabled = true;
 
 const consoleDisplay = document.getElementById("console");
 const computerScoreDisplay = document.getElementById("computerScore");
@@ -142,15 +142,17 @@ function playAgain() {
   scissorButton.disabled = false;
   playAgainButton.disabled = true;
   computerScore = 0;
+  console.log("Computer score: " + computerScore);
   playerScore = 0;
+  console.log("Player score: " + playerScore);
   playerScoreDisplay.textContent = "Player score: " + playerScore;
   computerScoreDisplay.textContent = "Computer score: " + computerScore;
-  playerScoreDisplay.style.display = "none";
-  computerChoiceDisplay.style.display = "none";
-  playerChoiceDisplay.style.display = "none";
-  computerScoreDisplay.style.display = "none";
-  roundResultDisplay.style.display = "none";
-  gameResultDisplay.style.display = "none";
+  
+  computerChoiceDisplay.textContent = "";
+  playerChoiceDisplay.textContent = "";
+  roundResultDisplay.textContent = "";
+  gameResultDisplay.textContent = "";
+
   game();
 }
 
